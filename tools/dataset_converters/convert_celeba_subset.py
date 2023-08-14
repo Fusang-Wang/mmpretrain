@@ -56,7 +56,7 @@ def convert2dict(splits, attr, dataroot: str, output: str, wanted_labels: list, 
     names = np.array(attr.header)[wanted_labels]
     meta_info["classes"] = list(names)
     data_list = []
-    for img, label in zip(img_list[:10], wanted_attrs[:10]):
+    for img, label in zip(img_list, wanted_attrs):
         # json file creation
         item = {"img_path": img}
         label_ = []
