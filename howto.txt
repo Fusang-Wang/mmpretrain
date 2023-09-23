@@ -1,0 +1,1 @@
+python tools/dataset_converters/convert_celeba_subset.py /mnt/data/fusang/Master_thesis/data/celebA/ /mnt/data/fusang/Master_thesis/data/celebA/mmpretrain_csra

@@ -30,8 +30,8 @@ train_dataloader = dict(
     num_workers=5,
     dataset=dict(
         type=dataset_type,
-        data_root='/mnt/Datasets/Geometry_Descriptor/fm/celeba_raw/test/train',
-        ann_file='/mnt/Datasets/Geometry_Descriptor/fm/celeba_raw/test/train.json',
+        data_root='/mnt/data/fusang/Master_thesis/data/celebA/mmpretrain_csra/train',
+        ann_file='/mnt/data/fusang/Master_thesis/data/celebA/mmpretrain_csra/train.json',
         pipeline=train_pipeline),
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
@@ -50,8 +50,8 @@ val_dataloader = dict(
     num_workers=5,
     dataset=dict(
         type=dataset_type,
-        data_root='/mnt/Datasets/Geometry_Descriptor/fm/celeba_raw/test/valid',
-        ann_file='/mnt/Datasets/Geometry_Descriptor/fm/celeba_raw/test/valid.json',
+        data_root='/mnt/data/fusang/Master_thesis/data/celebA/mmpretrain_csra/valid',
+        ann_file='/mnt/data/fusang/Master_thesis/data/celebA/mmpretrain_csra/valid.json',
         pipeline=train_pipeline),
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
@@ -61,8 +61,8 @@ test_dataloader = dict(
     num_workers=5,
     dataset=dict(
         type=dataset_type,
-        data_root='/mnt/Datasets/Geometry_Descriptor/fm/celeba_raw/test/test',
-        ann_file='/mnt/Datasets/Geometry_Descriptor/fm/celeba_raw/test/test.json',
+        data_root='/mnt/data/fusang/Master_thesis/data/celebA/mmpretrain_csra/test',
+        ann_file='/mnt/data/fusang/Master_thesis/data/celebA/mmpretrain_csra/test.json',
         pipeline=train_pipeline),
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
