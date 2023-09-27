@@ -36,14 +36,14 @@ data_preprocessor = dict(
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='RandomResizedCrop', scale=448, crop_ratio_range=(0.7, 1.0)),
+    dict(type='RandomResizedCrop', scale=128, crop_ratio_range=(0.7, 1.0)),
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(type='PackInputs'),
 ]
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='Resize', scale=448),
+    dict(type='Resize', scale=128),
     dict(
         type='PackInputs',
         # `gt_label_difficult` is needed for VOC evaluation
@@ -73,6 +73,6 @@ param_scheduler = [
     dict(type='StepLR', by_epoch=True, step_size=6, gamma=0.1)
 ]
 
-train_cfg = dict(by_epoch=True, max_epochs=20, val_interval=1)
+train_cfg = dict(by_epoch=True, max_epochs=100, val_interval=1)
 val_cfg = dict()
 test_cfg = dict()

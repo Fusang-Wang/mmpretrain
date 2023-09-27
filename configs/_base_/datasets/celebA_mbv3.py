@@ -1,7 +1,7 @@
 # dataset settings
-dataset_type = 'MultiLabelDataset'
+dataset_type = 'CustomDataset'
 data_preprocessor = dict(
-    num_classes=3,
+    num_classes=8,
     # RGB format normalization parameters
     mean=[123.675, 116.28, 103.53],
     std=[58.395, 57.12, 57.375],
@@ -26,12 +26,12 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=256,
-    num_workers=6,
+    batch_size=512,
+    num_workers=16,
     dataset=dict(
         type=dataset_type,
         data_root='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/train',
-        ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/multi_train.json',
+        ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/train.txt',
         pipeline=train_pipeline),
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
@@ -46,23 +46,23 @@ train_dataloader = dict(
 #     )
 # )
 val_dataloader = dict(
-    batch_size=16,
-    num_workers=6,
+    batch_size=64,
+    num_workers=5,
     dataset=dict(
         type=dataset_type,
         data_root='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/valid',
-        ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/multi_valid.json',
+        ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/valid.txt',
         pipeline=train_pipeline),
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
 
 test_dataloader = dict(
-    batch_size=16,
-    num_workers=6,
+    batch_size=64,
+    num_workers=5,
     dataset=dict(
         type=dataset_type,
         data_root='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/test',
-        ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/multi_test_no0.json',
+        ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/test.txt',
         pipeline=train_pipeline),
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
