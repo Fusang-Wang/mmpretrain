@@ -36,14 +36,14 @@ data_preprocessor = dict(
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='RandomResizedCrop', scale=128, crop_ratio_range=(0.7, 1.0)),
+    dict(type='RandomResizedCrop', scale=448, crop_ratio_range=(0.7, 1.0)),
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(type='PackInputs'),
 ]
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='Resize', scale=128),
+    dict(type='Resize', scale=448),
     dict(
         type='PackInputs',
         # `gt_label_difficult` is needed for VOC evaluation
