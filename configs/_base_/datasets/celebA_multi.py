@@ -26,7 +26,7 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=256,
+    batch_size=64,
     num_workers=6,
     dataset=dict(
         type=dataset_type,
@@ -56,16 +56,28 @@ val_dataloader = dict(
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
 
+# test_dataloader = dict(
+#     batch_size=16,
+#     num_workers=6,
+#     dataset=dict(
+#         type=dataset_type,
+#         data_root='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/test',
+#         ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/multi_test_no0.json',
+#         pipeline=train_pipeline),
+#     sampler=dict(type='DefaultSampler', shuffle=True),
+# )
+
 test_dataloader = dict(
     batch_size=16,
     num_workers=6,
     dataset=dict(
         type=dataset_type,
-        data_root='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/test',
-        ann_file='/home/alpha/Desktop/mmpretrain_blackH_smile_lipsticks/multi_test_no0.json',
+        data_root='/home/alpha/Desktop/style_mixing_test/img',
+        ann_file='/home/alpha/Desktop/style_mixing_test/multi_test.json',
         pipeline=train_pipeline),
     sampler=dict(type='DefaultSampler', shuffle=True),
 )
+
 # calculate precision_recall_f1 and mAP
 val_evaluator = [
     dict(type='MultiLabelMetric'),
